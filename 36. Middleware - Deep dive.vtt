@@ -1,0 +1,382 @@
+WEBVTT
+
+00:00.150 --> 00:03.910
+So we want to actually separate permissions in our application.
+
+00:03.960 --> 00:06.810
+And for this we are going to be using middleware.
+
+00:07.080 --> 00:07.640
+OK.
+
+00:07.740 --> 00:10.110
+So we said middleware a few It's us.
+
+00:10.140 --> 00:14.030
+So they're going to feuds are what actions a user can take or not.
+
+00:14.070 --> 00:19.600
+So would create a new middleware with a Ph.D. or a sun make middleware come on.
+
+00:20.310 --> 00:20.880
+OK.
+
+00:20.880 --> 00:24.730
+And the name of this is going to be I mean middleware.
+
+00:25.190 --> 00:25.550
+OK.
+
+00:25.560 --> 00:32.130
+So middleware created successfully and we'll go into all of our obdurately CTP and the non-middle whether
+
+00:32.130 --> 00:32.790
+it's free.
+
+00:32.790 --> 00:36.560
+We have an admin of PH B-class that was created for us.
+
+00:36.750 --> 00:41.110
+So this middleware is very simple handle on incoming requests.
+
+00:41.130 --> 00:46.100
+So we receive an incoming request and returned the next request.
+
+00:46.110 --> 00:46.420
+OK.
+
+00:46.440 --> 00:51.210
+So if we apply these middleware right now is going to receive the request and tell it to go to the next.
+
+00:51.360 --> 00:58.260
+OK so permitted but now what we want to do right here we check if the authenticated user has permissions
+
+00:58.260 --> 01:00.670
+to access a particular routes.
+
+01:00.810 --> 01:06.120
+And if that user doesn't have what we're going to read Sunday use a bike and tell him you do not have
+
+01:06.120 --> 01:06.900
+permissions.
+
+01:07.050 --> 01:08.780
+So this is our middleware.
+
+01:08.910 --> 01:10.140
+It's simple class.
+
+01:10.230 --> 01:15.980
+And when we said that we registered with our now and we'll be able to use it in our application.
+
+01:15.990 --> 01:17.360
+So let's set up the way.
+
+01:17.400 --> 01:23.690
+So we'll would see if we can get the authenticated user using our off right here.
+
+01:23.760 --> 01:26.330
+So let's use that of class.
+
+01:26.400 --> 01:28.860
+So it's a use of right here.
+
+01:28.890 --> 01:35.000
+So even the authenticates a user would say admin because we have that and Millfield.
+
+01:35.100 --> 01:39.540
+So if it's true then we'll be able to return the next request.
+
+01:39.540 --> 01:42.670
+But Whitehill want to check if it's not true.
+
+01:42.750 --> 01:43.140
+OK.
+
+01:43.150 --> 01:49.970
+See if the authenticated user is not an administrator then we'll set a session and flash.
+
+01:50.040 --> 01:52.300
+And this is going to be on in full.
+
+01:52.300 --> 02:01.240
+Remember we have that set up already and we'll see you do not have permissions to perform this action.
+
+02:01.400 --> 02:02.010
+OK.
+
+02:02.040 --> 02:09.720
+So if the user is not an administrator said this session and return a user somewhere so return the user
+
+02:10.170 --> 02:13.140
+back to where ever he's coming from.
+
+02:13.230 --> 02:15.760
+And that's all about a metre away.
+
+02:15.960 --> 02:19.960
+But next we need to register these middleware where we registar middleware.
+
+02:20.040 --> 02:22.730
+Remember in can now that Ph be.
+
+02:22.920 --> 02:25.520
+And where are we going to stop this.
+
+02:25.530 --> 02:28.560
+So the applications would middleware groups.
+
+02:28.590 --> 02:30.030
+We're not going to do that there.
+
+02:30.090 --> 02:35.130
+And this is a global middleware for all requests and then going to go down and what are we going to
+
+02:35.130 --> 02:36.240
+do is right here.
+
+02:36.240 --> 02:40.440
+So these middleware may be assigned to groups or used individually.
+
+02:40.440 --> 02:42.550
+So we're going to stay right here.
+
+02:42.720 --> 02:49.230
+So I would say this is going to be the main middleware and that admin middleware is found in our app
+
+02:49.510 --> 02:56.990
+HGP direct directory and middleware directory and the name was admin.
+
+02:57.500 --> 03:01.380
+And we specified the specific class right there.
+
+03:01.550 --> 03:02.100
+OK.
+
+03:02.100 --> 03:11.100
+So in our app a.p middleware we have the admin the HP and that's basically just this namespace right
+
+03:11.100 --> 03:11.530
+here.
+
+03:11.700 --> 03:12.200
+OK.
+
+03:12.210 --> 03:15.970
+So we've registered the middle where we should be able to use it.
+
+03:15.990 --> 03:20.920
+Let's head over to our adult blade web ph be and use this middleware.
+
+03:21.090 --> 03:28.200
+So first of all right here we have a route what we can do is change a middleware meathook right here
+
+03:28.500 --> 03:30.910
+and would say admin.
+
+03:31.010 --> 03:31.540
+OK.
+
+03:31.560 --> 03:37.790
+So this route where we change a user's permissions to administrates or would only be accessed by a user
+
+03:37.800 --> 03:39.300
+that is an administrator.
+
+03:39.500 --> 03:42.700
+OK so now Emily is not an administrator.
+
+03:42.870 --> 03:45.970
+Sure she's going to try to make herself an administrator.
+
+03:45.990 --> 03:52.500
+And let's see if she succeeds that's from our admin the discussion does not exist.
+
+03:52.700 --> 03:55.400
+And that's because we didn't imports it.
+
+03:55.400 --> 03:57.400
+So let's use that.
+
+03:58.190 --> 03:59.850
+So use session.
+
+04:00.040 --> 04:01.840
+OK so you see I truly.
+
+04:01.930 --> 04:06.800
+That's routes that middle where it was caught because we registered the middle where are we giving the
+
+04:06.800 --> 04:08.100
+name right here.
+
+04:08.240 --> 04:08.750
+OK.
+
+04:08.780 --> 04:15.220
+So that was actually called Let's go back and refresh and let's make a million.
+
+04:15.240 --> 04:21.240
+I mean and you see I'm redirected back and this and I received a message you do not have permissions
+
+04:21.260 --> 04:23.540
+to perform this action.
+
+04:23.540 --> 04:25.390
+How cool is that.
+
+04:25.520 --> 04:26.000
+OK.
+
+04:26.030 --> 04:32.800
+So he's she's not an administrator so we can't she can actually make anybody an administrator.
+
+04:32.930 --> 04:36.930
+So we're going to add such to this middleware somewhere else.
+
+04:37.000 --> 04:39.160
+Ok I'll show you that in a moment.
+
+04:39.300 --> 04:45.940
+So good so I use this controller and what creates the constructs for this controller right here.
+
+04:46.040 --> 04:52.760
+So it's a public function on what constructs and would inject that middleware right there.
+
+04:52.750 --> 04:57.070
+So I would say this middleware and I would say admin.
+
+04:57.170 --> 05:04.190
+So any methods on this controller will not actually be assessed by any user that is not an administrator.
+
+05:04.250 --> 05:05.840
+So let's go to our home page.
+
+05:05.840 --> 05:07.600
+So right here in our home page.
+
+05:07.700 --> 05:10.310
+And now let's try to access the use speech.
+
+05:10.580 --> 05:14.150
+You do not have perfect permissions to perform this action.
+
+05:14.150 --> 05:15.730
+How cool is that.
+
+05:15.740 --> 05:22.480
+So Emily is not an administrator so she can't even access the page where we see users.
+
+05:22.580 --> 05:24.180
+She can't even create a user.
+
+05:24.230 --> 05:26.690
+She can do nothing of any of this.
+
+05:26.690 --> 05:28.560
+My thoughts are on this controller.
+
+05:28.700 --> 05:35.400
+So that's how we use our middleware and what we can additionally do is actually not display these routes
+
+05:35.720 --> 05:38.280
+if the user is not an administrator.
+
+05:38.360 --> 05:42.070
+So let's go to our app the blade the HP and do that.
+
+05:42.200 --> 05:52.310
+So right here we have users a new user they're going to see if auth user admin and if so if the authenticated
+
+05:52.310 --> 05:56.940
+user admin FUD is true then we'll be able to see those routes.
+
+05:57.080 --> 06:00.530
+OK so right now Emily is not authenticates at all.
+
+06:00.650 --> 06:02.800
+All right now Emily is not an administrator.
+
+06:02.930 --> 06:04.990
+So those fields disappear.
+
+06:05.120 --> 06:09.140
+But let me logout and logging with my own accounts.
+
+06:09.140 --> 06:14.390
+So right now I'm going to have my accounts and remember I am default administrator Opsahl log in right
+
+06:14.400 --> 06:19.600
+there and I think OK I'm supposed to be that me not that com.
+
+06:19.750 --> 06:22.490
+OK plug in and I'm locked in.
+
+06:22.670 --> 06:25.520
+Right there you see I can see the use of speech.
+
+06:25.840 --> 06:34.070
+And they can make Emily an administrator and I can log out and log in with Emily's profile.
+
+06:34.130 --> 06:39.020
+So Emily and I will log in and right here everything looks great.
+
+06:39.050 --> 06:44.930
+So Emily is an administrator and she can go ahead and see us and she can see herself and remove her
+
+06:44.930 --> 06:45.690
+permissions.
+
+06:45.740 --> 06:48.880
+But if you permission is done for obviously OK.
+
+06:49.160 --> 06:51.580
+So everything looks great.
+
+06:51.920 --> 07:00.230
+Let's do a little recap so we create an admin middleware using our make middleware command and middleware
+
+07:00.260 --> 07:01.550
+as simply filters.
+
+07:01.580 --> 07:07.520
+So for each request we are going to handle an incoming request and we're going to do something.
+
+07:07.550 --> 07:14.930
+First of all we check the authenticates user at that moment is the user an administrator so if not sets
+
+07:15.020 --> 07:19.850
+a session and see you do not have permissions and redirect the user back to wherever he's coming from
+
+07:20.300 --> 07:24.600
+then if this off check fails it's going to reach on next.
+
+07:24.620 --> 07:27.520
+So the next request is going to be passed.
+
+07:27.590 --> 07:28.250
+OK.
+
+07:28.400 --> 07:36.680
+So now in our users control we are using our first of all in our candidate PH BE up as Tippecanoe.
+
+07:36.680 --> 07:40.880
+We've registered that middleware and we called it admin right here.
+
+07:41.000 --> 07:41.600
+OK.
+
+07:41.600 --> 07:45.460
+So after that we actually used middleware controllers.
+
+07:45.500 --> 07:51.680
+So in the constructor we inject said the middleware idea and said that every single thought on this
+
+07:51.770 --> 07:56.190
+controller should be authenticated by the way before being performed.
+
+07:56.360 --> 08:00.110
+And right there we see it working perfectly.
+
+08:00.140 --> 08:03.940
+So thank you for watching and see you in the next video.
